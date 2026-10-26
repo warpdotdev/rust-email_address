@@ -4,6 +4,9 @@ on:
     paths:
       - '**/Cargo.toml'
       - '**/Cargo.lock'
+permissions:
+  contents: read # actions/checkout needs to read the repo
+  checks: write # actions-rs/audit-check publishes the audit results as a check run
 jobs:
   security_audit:
     runs-on: ubuntu-latest
